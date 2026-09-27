@@ -45,18 +45,18 @@ export function CalendarGrid({ tasks, onDayClick }: Props) {
   return (
     <div>
       <div className="mb-4 flex items-center justify-between">
-        <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">{monthLabel}</h2>
+        <h2 className="font-display text-base font-semibold text-gray-900 dark:text-gray-100">{monthLabel}</h2>
         <div className="flex gap-1">
           <button
             onClick={() => setCursor(new Date(cursor.getFullYear(), cursor.getMonth() - 1, 1))}
-            className="rounded-lg p-2 text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800"
+            className="rounded-lg p-2 text-gray-500 hover:bg-gray-100 dark:hover:bg-ink-600"
             aria-label="Previous month"
           >
             <ChevronLeft className="h-4 w-4" />
           </button>
           <button
             onClick={() => setCursor(new Date(cursor.getFullYear(), cursor.getMonth() + 1, 1))}
-            className="rounded-lg p-2 text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800"
+            className="rounded-lg p-2 text-gray-500 hover:bg-gray-100 dark:hover:bg-ink-600"
             aria-label="Next month"
           >
             <ChevronRight className="h-4 w-4" />
@@ -86,8 +86,8 @@ export function CalendarGrid({ tasks, onDayClick }: Props) {
               onClick={() => onDayClick(iso)}
               className={`group relative min-h-[76px] rounded-lg border p-1.5 text-left align-top transition-theme sm:min-h-[92px] ${
                 isCurrentMonth
-                  ? 'border-gray-100 bg-white dark:border-gray-800 dark:bg-gray-900'
-                  : 'border-transparent bg-gray-50/50 dark:bg-gray-900/30'
+                  ? 'border-gray-100 bg-paper-card dark:border-ink-500 dark:bg-ink-700'
+                  : 'border-transparent bg-gray-50/50 dark:bg-ink-800/40'
               } ${isToday ? 'ring-2 ring-brand-500' : ''}`}
             >
               <div className="flex items-center justify-between">
@@ -102,9 +102,9 @@ export function CalendarGrid({ tasks, onDayClick }: Props) {
                     key={t.id}
                     className={`truncate rounded px-1 py-0.5 text-[10px] font-medium ${
                       isOverdue(t)
-                        ? 'bg-red-100 text-red-700 dark:bg-red-500/20 dark:text-red-300'
+                        ? 'bg-ember-100 text-ember-700 dark:bg-ember-500/20 dark:text-ember-300'
                         : t.priority === 'Urgent' || t.priority === 'High'
-                        ? 'bg-orange-100 text-orange-700 dark:bg-orange-500/20 dark:text-orange-300'
+                        ? 'bg-amber-100 text-amber-700 dark:bg-amber-500/20 dark:text-amber-300'
                         : 'bg-brand-50 text-brand-700 dark:bg-brand-500/10 dark:text-brand-300'
                     }`}
                   >

@@ -2,14 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  color-scheme: light;
+}
+.dark {
+  color-scheme: dark;
+}
+
 * {
   scrollbar-width: thin;
+  scrollbar-color: theme('colors.gray.300') transparent;
+}
+.dark * {
+  scrollbar-color: theme('colors.ink.500') transparent;
+}
+
+html,
+body {
+  font-family: 'Inter', system-ui, sans-serif;
 }
 
 html {
   transition: background-color 0.2s ease;
 }
 
+body {
+  /* Let content run under translucent PWA status/home bars, then pad back in. */
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+::selection {
+  background-color: theme('colors.brand.200');
+  color: theme('colors.brand.900');
+}
+.dark ::selection {
+  background-color: theme('colors.brand.700');
+  color: theme('colors.brand.50');
+}
+
 .transition-theme {
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+/* Visible keyboard focus everywhere, without a permanent outline on mouse click */
+:focus-visible {
+  outline: 2px solid theme('colors.brand.500');
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

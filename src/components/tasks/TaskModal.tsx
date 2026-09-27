@@ -219,7 +219,7 @@ export function TaskModal({ open, onClose, onSave, categories, initialTask, pend
           )}
         </div>
 
-        <div className="rounded-lg border border-dashed border-gray-200 dark:border-gray-700 p-3">
+        <div className="rounded-xl border border-dashed border-brand-200 bg-brand-50/40 dark:border-brand-500/30 dark:bg-brand-500/5 p-3">
           <div className="flex items-center justify-between">
             <p className="text-sm font-medium text-gray-700 dark:text-gray-200">AI Smart Breakdown</p>
             <button
@@ -258,7 +258,7 @@ export function TaskModal({ open, onClose, onSave, categories, initialTask, pend
           </p>
         </div>
 
-        {aiError && <p className="text-xs text-red-600 dark:text-red-400">{aiError}</p>}
+        {aiError && <p className="text-xs text-ember-600 dark:text-ember-400">{aiError}</p>}
 
         <div className="flex justify-end gap-2 pt-2">
           <Button type="button" variant="ghost" onClick={onClose}>

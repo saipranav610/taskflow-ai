@@ -19,7 +19,7 @@ export function TodayTasks({ tasks, categories, onToggleComplete, onEdit, onDele
   const todayTasks = tasks.filter((t) => isToday(t.due_date));
   return (
     <Card className="p-5">
-      <h3 className="mb-3 text-sm font-semibold text-gray-900 dark:text-gray-100">Today's Tasks</h3>
+      <h3 className="mb-3 font-display text-sm font-semibold text-gray-900 dark:text-gray-100">Today's Tasks</h3>
       {todayTasks.length === 0 ? (
         <p className="py-6 text-center text-sm text-gray-400">Nothing due today. Enjoy the breathing room.</p>
       ) : (
@@ -44,7 +44,7 @@ export function UpcomingTasks({ tasks, categories, onToggleComplete, onEdit, onD
   const upcoming = tasks.filter(isUpcoming).slice(0, 6);
   return (
     <Card className="p-5">
-      <h3 className="mb-3 text-sm font-semibold text-gray-900 dark:text-gray-100">Upcoming Tasks</h3>
+      <h3 className="mb-3 font-display text-sm font-semibold text-gray-900 dark:text-gray-100">Upcoming Tasks</h3>
       {upcoming.length === 0 ? (
         <p className="py-6 text-center text-sm text-gray-400">No upcoming tasks scheduled.</p>
       ) : (

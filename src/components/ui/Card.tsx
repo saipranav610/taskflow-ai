@@ -3,7 +3,7 @@ import { HTMLAttributes } from 'react';
 export function Card({ className = '', ...rest }: HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={`rounded-2xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-soft transition-theme ${className}`}
+      className={`rounded-2xl bg-paper-card dark:bg-ink-700 border border-gray-100 dark:border-ink-500 shadow-soft transition-theme ${className}`}
       {...rest}
     />
   );

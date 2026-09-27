@@ -32,7 +32,7 @@ export default function LoginPage() {
 
   return (
     <AuthLayout>
-      <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100">Welcome back</h1>
+      <h1 className="font-display text-xl font-semibold text-gray-900 dark:text-gray-100">Welcome back</h1>
       <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">Log in to keep your tasks moving.</p>
 
       <form onSubmit={handleSubmit} className="mt-6 space-y-4" noValidate>
@@ -73,15 +73,15 @@ export default function LoginPage() {
 
 export function AuthLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-50 dark:bg-gray-950 px-4">
-      <div className="w-full max-w-sm">
+    <div className="flex min-h-screen items-center justify-center bg-paper dark:bg-ink-900 px-4">
+      <div className="w-full max-w-sm animate-fade-in">
         <div className="mb-6 flex items-center justify-center gap-2">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-600 text-white">
+          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-600 text-white">
             <Sparkles className="h-5 w-5" />
           </div>
-          <span className="text-xl font-bold text-gray-900 dark:text-gray-100">TaskFlow AI</span>
+          <span className="font-display text-xl font-semibold text-gray-900 dark:text-gray-100">TaskFlow AI</span>
         </div>
-        <div className="rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 shadow-card">
+        <div className="rounded-2xl border border-gray-100 dark:border-ink-500 bg-paper-card dark:bg-ink-700 p-6 shadow-card">
           {children}
         </div>
       </div>

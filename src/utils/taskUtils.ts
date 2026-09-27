@@ -62,13 +62,28 @@ export function filterTasks(tasks: Task[], filters: TaskFilters): Task[] {
 export function priorityColor(priority: Priority): string {
   switch (priority) {
     case 'Urgent':
-      return 'bg-red-100 text-red-700 dark:bg-red-500/20 dark:text-red-300';
+      return 'bg-ember-100 text-ember-700 dark:bg-ember-500/20 dark:text-ember-300';
     case 'High':
-      return 'bg-orange-100 text-orange-700 dark:bg-orange-500/20 dark:text-orange-300';
+      return 'bg-amber-100 text-amber-700 dark:bg-amber-500/20 dark:text-amber-300';
     case 'Medium':
-      return 'bg-blue-100 text-blue-700 dark:bg-blue-500/20 dark:text-blue-300';
+      return 'bg-sky-100 text-sky-700 dark:bg-sky-500/20 dark:text-sky-300';
     case 'Low':
       return 'bg-gray-100 text-gray-600 dark:bg-gray-500/20 dark:text-gray-300';
+  }
+}
+
+// The accent bar color on a task card — the priority's primary signal,
+// so the badge itself can stay quieter.
+export function priorityAccent(priority: Priority): string {
+  switch (priority) {
+    case 'Urgent':
+      return 'bg-ember-500';
+    case 'High':
+      return 'bg-amber-400';
+    case 'Medium':
+      return 'bg-sky-400';
+    case 'Low':
+      return 'bg-gray-300 dark:bg-gray-600';
   }
 }
 
@@ -81,4 +96,26 @@ export function statusColor(status: TaskStatus): string {
     case 'Todo':
       return 'bg-gray-100 text-gray-600 dark:bg-gray-500/20 dark:text-gray-300';
   }
+}
+
+// "90" -> "1h 30m" for the duration chip.
+export function formatDuration(minutes: number | null): string | null {
+  if (!minutes || minutes <= 0) return null;
+  const h = Math.floor(minutes / 60);
+  const m = minutes % 60;
+  if (h === 0) return `${m}m`;
+  if (m === 0) return `${h}h`;
+  return `${h}h ${m}m`;
+}
+
+// A short, human due-date label: Today / Tomorrow / Mon 14 / date, so the
+// same field reads at a glance instead of as a raw ISO string.
+export function formatDueDate(dateStr: string | null): string | null {
+  if (!dateStr) return null;
+  const today = new Date().toISOString().slice(0, 10);
+  const tomorrow = new Date(Date.now() + 86400000).toISOString().slice(0, 10);
+  if (dateStr === today) return 'Today';
+  if (dateStr === tomorrow) return 'Tomorrow';
+  const d = new Date(`${dateStr}T00:00:00`);
+  return d.toLocaleDateString(undefined, { weekday: 'short', day: 'numeric', month: 'short' });
 }

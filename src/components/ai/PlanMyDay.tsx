@@ -29,7 +29,7 @@ export function PlanMyDay({ tasks }: { tasks: Task[] }) {
     <Card className="p-5">
       <div className="flex items-center justify-between">
         <div>
-          <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100">Plan My Day</h3>
+          <h3 className="font-display text-sm font-semibold text-gray-900 dark:text-gray-100">Plan My Day</h3>
           <p className="text-xs text-gray-500 dark:text-gray-400">
             {incompleteCount} pending task{incompleteCount === 1 ? '' : 's'} to work with
           </p>
@@ -39,10 +39,10 @@ export function PlanMyDay({ tasks }: { tasks: Task[] }) {
         </Button>
       </div>
 
-      {error && <p className="mt-3 text-xs text-red-600 dark:text-red-400">{error}</p>}
+      {error && <p className="mt-3 text-xs text-ember-600 dark:text-ember-400">{error}</p>}
 
       {plan && (
-        <div className="mt-4 space-y-2 border-t border-gray-100 dark:border-gray-800 pt-4">
+        <div className="mt-4 space-y-2 border-t border-gray-100 dark:border-ink-500 pt-4">
           <p className="text-xs text-gray-400">This is a suggestion — nothing has been scheduled or changed.</p>
           <ol className="space-y-2">
             {plan.map((item, i) => (
@@ -50,7 +50,7 @@ export function PlanMyDay({ tasks }: { tasks: Task[] }) {
                 key={i}
                 className={`flex items-center gap-3 rounded-lg px-3 py-2 text-sm ${
                   item.is_break
-                    ? 'bg-gray-50 text-gray-500 dark:bg-gray-800/50 dark:text-gray-400'
+                    ? 'bg-gray-50 text-gray-500 dark:bg-ink-600/50 dark:text-gray-400'
                     : 'bg-brand-50 text-brand-900 dark:bg-brand-500/10 dark:text-brand-200'
                 }`}
               >

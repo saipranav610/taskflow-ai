@@ -44,7 +44,7 @@ export default function SignupPage() {
   if (done) {
     return (
       <AuthLayout>
-        <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100">Check your email</h1>
+        <h1 className="font-display text-xl font-semibold text-gray-900 dark:text-gray-100">Check your email</h1>
         <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
           We've sent a confirmation link to <strong>{email}</strong>. Confirm your address, then log in.
         </p>
@@ -57,7 +57,7 @@ export default function SignupPage() {
 
   return (
     <AuthLayout>
-      <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100">Create your account</h1>
+      <h1 className="font-display text-xl font-semibold text-gray-900 dark:text-gray-100">Create your account</h1>
       <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">Start organizing your work with AI.</p>
 
       <form onSubmit={handleSubmit} className="mt-6 space-y-4" noValidate>

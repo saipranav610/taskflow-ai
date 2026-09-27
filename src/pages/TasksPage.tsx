@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Plus } from 'lucide-react';
 import { AppShell } from '../components/layout/AppShell';
 import { TaskCard } from '../components/tasks/TaskCard';
@@ -19,6 +20,20 @@ export default function TasksPage() {
   const [editingTask, setEditingTask] = useState<Task | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [taskToDelete, setTaskToDelete] = useState<Task | null>(null);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  // The mobile bottom-nav FAB deep-links here with ?new=1 to open the
+  // create-task sheet immediately, from anywhere in the app.
+  useEffect(() => {
+    if (searchParams.get('new') === '1') {
+      setEditingTask(null);
+      setModalOpen(true);
+      const next = new URLSearchParams(searchParams);
+      next.delete('new');
+      setSearchParams(next, { replace: true });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const visibleTasks = sortTasks(filterTasks(tasks, filters), sortKey);
 
@@ -28,7 +43,7 @@ export default function TasksPage() {
 
   return (
     <AppShell title="My Tasks" onSearch={(v) => setFilters((f) => ({ ...f, search: v }))}>
-      <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+      <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <TaskFilters filters={filters} onChange={setFilters} sortKey={sortKey} onSortChange={setSortKey} categories={categories} />
         <Button
           icon={<Plus className="h-4 w-4" />}
@@ -36,6 +51,7 @@ export default function TasksPage() {
             setEditingTask(null);
             setModalOpen(true);
           }}
+          className="hidden sm:inline-flex"
         >
           New Task
         </Button>
@@ -44,7 +60,7 @@ export default function TasksPage() {
       {loading ? (
         <p className="text-sm text-gray-400">Loading tasks...</p>
       ) : visibleTasks.length === 0 ? (
-        <div className="rounded-2xl border border-dashed border-gray-200 dark:border-gray-800 py-16 text-center">
+        <div className="rounded-2xl border border-dashed border-gray-200 dark:border-ink-500 py-16 text-center">
           <p className="text-sm text-gray-400">No tasks match your filters yet.</p>
         </div>
       ) : (

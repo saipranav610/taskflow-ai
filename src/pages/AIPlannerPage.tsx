@@ -13,7 +13,7 @@ export default function AIPlannerPage() {
       <Card className="mb-6 flex items-center gap-3 bg-gradient-to-r from-brand-600 to-brand-500 p-5 text-white">
         <Sparkles className="h-6 w-6 shrink-0" />
         <div>
-          <p className="font-semibold">TaskFlow AI Assistant</p>
+          <p className="font-display font-semibold">TaskFlow AI Assistant</p>
           <p className="text-sm text-brand-100">
             AI suggestions here are never applied automatically — you always review and approve them first.
           </p>

@@ -8,16 +8,16 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const variants: Record<string, string> = {
-  primary: 'bg-brand-600 text-white hover:bg-brand-700 shadow-soft',
+  primary: 'bg-brand-600 text-white hover:bg-brand-700 active:bg-brand-800 shadow-soft',
   secondary:
-    'bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 dark:bg-gray-800 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-700',
-  ghost: 'bg-transparent text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800',
-  danger: 'bg-red-600 text-white hover:bg-red-700',
+    'bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 dark:bg-ink-600 dark:text-gray-100 dark:border-ink-500 dark:hover:bg-ink-500',
+  ghost: 'bg-transparent text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-ink-600',
+  danger: 'bg-ember-600 text-white hover:bg-ember-700',
 };
 
 const sizes: Record<string, string> = {
   sm: 'px-3 py-1.5 text-sm',
-  md: 'px-4 py-2 text-sm',
+  md: 'px-4 py-2.5 text-sm',
 };
 
 export function Button({
@@ -32,7 +32,7 @@ export function Button({
 }: ButtonProps) {
   return (
     <button
-      className={`inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-theme disabled:opacity-50 disabled:cursor-not-allowed ${variants[variant]} ${sizes[size]} ${className}`}
+      className={`inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-theme active:scale-[0.97] disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100 ${variants[variant]} ${sizes[size]} ${className}`}
       disabled={disabled || loading}
       {...rest}
     >

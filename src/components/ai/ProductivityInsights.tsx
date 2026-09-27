@@ -26,13 +26,13 @@ export function ProductivityInsights({ tasks }: { tasks: Task[] }) {
   return (
     <Card className="p-5">
       <div className="flex items-center justify-between">
-        <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100">Productivity Insights</h3>
+        <h3 className="font-display text-sm font-semibold text-gray-900 dark:text-gray-100">Productivity Insights</h3>
         <Button variant="secondary" size="sm" onClick={handleGenerate} loading={loading} icon={<Sparkles className="h-4 w-4" />}>
           Generate
         </Button>
       </div>
 
-      {error && <p className="mt-3 text-xs text-red-600 dark:text-red-400">{error}</p>}
+      {error && <p className="mt-3 text-xs text-ember-600 dark:text-ember-400">{error}</p>}
 
       {insights && (
         <ul className="mt-4 space-y-2">

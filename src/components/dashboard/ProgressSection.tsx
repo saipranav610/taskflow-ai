@@ -9,49 +9,67 @@ export function ProgressSection({ tasks }: { tasks: Task[] }) {
 
   const todayTasks = tasks.filter((t) => isToday(t.due_date));
   const todayCompleted = todayTasks.filter((t) => t.status === 'Completed').length;
+  const todayPct = todayTasks.length ? (todayCompleted / todayTasks.length) * 100 : 0;
 
-  const circumference = 2 * Math.PI * 40;
+  const circumference = 2 * Math.PI * 44;
   const offset = circumference - (pct / 100) * circumference;
 
   return (
-    <Card className="flex flex-col items-center gap-4 p-6 sm:flex-row sm:justify-between">
-      <div className="flex items-center gap-4">
-        <svg width="96" height="96" viewBox="0 0 96 96" className="shrink-0 -rotate-90">
-          <circle cx="48" cy="48" r="40" fill="none" stroke="currentColor" strokeWidth="8" className="text-gray-100 dark:text-gray-800" />
+    <Card className="flex flex-col items-center gap-5 p-6 sm:flex-row sm:justify-between">
+      <div className="flex items-center gap-5">
+        <svg width="104" height="104" viewBox="0 0 104 104" className="shrink-0 -rotate-90">
+          <circle cx="52" cy="52" r="44" fill="none" stroke="currentColor" strokeWidth="9" className="text-gray-100 dark:text-ink-500" />
           <circle
-            cx="48"
-            cy="48"
-            r="40"
+            cx="52"
+            cy="52"
+            r="44"
             fill="none"
             stroke="currentColor"
-            strokeWidth="8"
+            strokeWidth="9"
             strokeLinecap="round"
             strokeDasharray={circumference}
             strokeDashoffset={offset}
-            className="text-brand-600 transition-all duration-500"
+            className="text-brand-600 transition-all duration-700 ease-out"
           />
-          <text x="48" y="48" transform="rotate(90 48 48)" textAnchor="middle" dy="0.35em" className="fill-gray-900 dark:fill-gray-100 text-lg font-bold rotate-90">
+          <text
+            x="52"
+            y="52"
+            transform="rotate(90 52 52)"
+            textAnchor="middle"
+            dy="0.35em"
+            className="fill-gray-900 font-mono text-xl font-semibold tabular-nums dark:fill-gray-100"
+          >
             {pct}%
           </text>
         </svg>
         <div>
-          <p className="text-sm font-semibold text-gray-900 dark:text-gray-100">Overall completion</p>
-          <p className="text-xs text-gray-500 dark:text-gray-400">
-            {completed} of {total} tasks completed
+          <p className="font-display text-sm font-semibold text-gray-900 dark:text-gray-100">Overall completion</p>
+          <p className="mt-0.5 font-mono text-xs tabular-nums text-gray-500 dark:text-gray-400">
+            {completed} / {total} tasks done
           </p>
         </div>
       </div>
 
       <div className="w-full sm:w-64">
-        <p className="text-sm font-medium text-gray-700 dark:text-gray-300">
-          {todayCompleted} of {todayTasks.length} tasks completed today
-        </p>
-        <div className="mt-2 h-2.5 w-full overflow-hidden rounded-full bg-gray-100 dark:bg-gray-800">
+        <div className="flex items-baseline justify-between">
+          <p className="text-sm font-medium text-gray-700 dark:text-gray-300">Today</p>
+          <p className="font-mono text-xs tabular-nums text-gray-500 dark:text-gray-400">
+            {todayCompleted} / {todayTasks.length}
+          </p>
+        </div>
+        <div className="mt-2 h-2.5 w-full overflow-hidden rounded-full bg-gray-100 dark:bg-ink-500">
           <div
-            className="h-full rounded-full bg-brand-600 transition-all duration-500"
-            style={{ width: `${todayTasks.length ? (todayCompleted / todayTasks.length) * 100 : 0}%` }}
+            className="h-full rounded-full bg-gradient-to-r from-brand-500 to-brand-600 transition-all duration-700 ease-out"
+            style={{ width: `${todayPct}%` }}
           />
         </div>
+        <p className="mt-2 text-xs text-gray-400">
+          {todayTasks.length === 0
+            ? 'Nothing due today.'
+            : todayPct === 100
+              ? 'All done for today. Nice work.'
+              : `${todayTasks.length - todayCompleted} left today.`}
+        </p>
       </div>
     </Card>
   );

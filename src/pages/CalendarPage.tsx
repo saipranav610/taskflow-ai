@@ -30,14 +30,14 @@ export default function CalendarPage() {
         </Card>
 
         <Card className="p-5">
-          <h3 className="mb-3 text-sm font-semibold text-gray-900 dark:text-gray-100">Overdue</h3>
+          <h3 className="mb-3 font-display text-sm font-semibold text-gray-900 dark:text-gray-100">Overdue</h3>
           {overdueTasks.length === 0 ? (
             <p className="text-sm text-gray-400">Nothing overdue. Nice work.</p>
           ) : (
             <ul className="space-y-2">
               {overdueTasks.map((t) => (
-                <li key={t.id} className="rounded-lg bg-red-50 dark:bg-red-500/10 p-2 text-sm text-red-700 dark:text-red-300">
-                  {t.title} <span className="block text-xs text-red-500">{t.due_date}</span>
+                <li key={t.id} className="rounded-xl bg-ember-50 dark:bg-ember-500/10 p-2 text-sm text-ember-700 dark:text-ember-300">
+                  {t.title} <span className="block font-mono text-xs text-ember-500">{t.due_date}</span>
                 </li>
               ))}
             </ul>

@@ -31,7 +31,7 @@ export function ForgotPasswordPage() {
 
   return (
     <AuthLayout>
-      <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100">Reset your password</h1>
+      <h1 className="font-display text-xl font-semibold text-gray-900 dark:text-gray-100">Reset your password</h1>
       {sent ? (
         <p className="mt-3 text-sm text-gray-500 dark:text-gray-400">
           If an account exists for <strong>{email}</strong>, a reset link is on its way.
@@ -87,7 +87,7 @@ export function ResetPasswordPage() {
 
   return (
     <AuthLayout>
-      <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100">Choose a new password</h1>
+      <h1 className="font-display text-xl font-semibold text-gray-900 dark:text-gray-100">Choose a new password</h1>
       <form onSubmit={handleSubmit} className="mt-6 space-y-4" noValidate>
         <div>
           <Label htmlFor="password">New password</Label>

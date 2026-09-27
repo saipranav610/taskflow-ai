@@ -22,24 +22,26 @@ export function Modal({ open, onClose, title, children, maxWidth = 'max-w-lg' }:
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4"
+      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-ink-900/50 backdrop-blur-sm p-0 sm:p-4"
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-title"
       onClick={onClose}
     >
       <div
-        className={`w-full ${maxWidth} max-h-[90vh] overflow-y-auto rounded-2xl bg-white dark:bg-gray-900 shadow-card transition-theme`}
+        className={`w-full ${maxWidth} max-h-[92vh] overflow-y-auto rounded-t-3xl sm:rounded-2xl bg-paper-card dark:bg-ink-700 shadow-card transition-theme animate-sheet-in`}
+        style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-center justify-between border-b border-gray-100 dark:border-gray-800 px-5 py-4">
-          <h2 id="modal-title" className="text-base font-semibold text-gray-900 dark:text-gray-100">
+        <div className="mx-auto mt-2 h-1 w-10 rounded-full bg-gray-200 dark:bg-ink-500 sm:hidden" />
+        <div className="flex items-center justify-between border-b border-gray-100 dark:border-ink-500 px-5 py-4">
+          <h2 id="modal-title" className="font-display text-base font-semibold text-gray-900 dark:text-gray-100">
             {title}
           </h2>
           <button
             onClick={onClose}
             aria-label="Close dialog"
-            className="rounded-lg p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-800"
+            className="rounded-lg p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-ink-600"
           >
             <X className="h-5 w-5" />
           </button>
@@ -73,13 +75,13 @@ export function ConfirmDialog({
       <div className="mt-5 flex justify-end gap-2">
         <button
           onClick={onCancel}
-          className="rounded-lg px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+          className="rounded-xl px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-ink-600"
         >
           Cancel
         </button>
         <button
           onClick={onConfirm}
-          className="rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-red-700"
+          className="rounded-xl bg-ember-600 px-4 py-2 text-sm font-medium text-white hover:bg-ember-700 active:scale-[0.97] transition-theme"
         >
           {confirmLabel}
         </button>
