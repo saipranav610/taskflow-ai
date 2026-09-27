@@ -29,19 +29,19 @@ export function Modal({ open, onClose, title, children, maxWidth = 'max-w-lg' }:
       onClick={onClose}
     >
       <div
-        className={`w-full ${maxWidth} max-h-[92vh] overflow-y-auto rounded-t-3xl sm:rounded-2xl bg-paper-card dark:bg-ink-700 shadow-card transition-theme animate-sheet-in`}
+        className={`w-full ${maxWidth} max-h-[92vh] overflow-y-auto rounded-t-3xl sm:rounded-3xl bg-paper-card dark:bg-ink-800 dark:border dark:border-white/10 shadow-card transition-theme animate-sheet-in`}
         style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="mx-auto mt-2 h-1 w-10 rounded-full bg-gray-200 dark:bg-ink-500 sm:hidden" />
-        <div className="flex items-center justify-between border-b border-gray-100 dark:border-ink-500 px-5 py-4">
+        <div className="mx-auto mt-2 h-1 w-10 rounded-full bg-gray-200 dark:bg-white/15 sm:hidden" />
+        <div className="flex items-center justify-between border-b border-gray-100 dark:border-white/10 px-5 py-4">
           <h2 id="modal-title" className="font-display text-base font-semibold text-gray-900 dark:text-gray-100">
             {title}
           </h2>
           <button
             onClick={onClose}
             aria-label="Close dialog"
-            className="rounded-lg p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-ink-600"
+            className="rounded-lg p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-white/10"
           >
             <X className="h-5 w-5" />
           </button>
@@ -75,7 +75,7 @@ export function ConfirmDialog({
       <div className="mt-5 flex justify-end gap-2">
         <button
           onClick={onCancel}
-          className="rounded-xl px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-ink-600"
+          className="rounded-xl px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/10"
         >
           Cancel
         </button>

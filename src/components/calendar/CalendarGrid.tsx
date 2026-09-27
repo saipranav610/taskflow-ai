@@ -49,14 +49,14 @@ export function CalendarGrid({ tasks, onDayClick }: Props) {
         <div className="flex gap-1">
           <button
             onClick={() => setCursor(new Date(cursor.getFullYear(), cursor.getMonth() - 1, 1))}
-            className="rounded-lg p-2 text-gray-500 hover:bg-gray-100 dark:hover:bg-ink-600"
+            className="rounded-lg p-2 text-gray-500 hover:bg-gray-100 dark:hover:bg-white/10"
             aria-label="Previous month"
           >
             <ChevronLeft className="h-4 w-4" />
           </button>
           <button
             onClick={() => setCursor(new Date(cursor.getFullYear(), cursor.getMonth() + 1, 1))}
-            className="rounded-lg p-2 text-gray-500 hover:bg-gray-100 dark:hover:bg-ink-600"
+            className="rounded-lg p-2 text-gray-500 hover:bg-gray-100 dark:hover:bg-white/10"
             aria-label="Next month"
           >
             <ChevronRight className="h-4 w-4" />
@@ -86,7 +86,7 @@ export function CalendarGrid({ tasks, onDayClick }: Props) {
               onClick={() => onDayClick(iso)}
               className={`group relative min-h-[76px] rounded-lg border p-1.5 text-left align-top transition-theme sm:min-h-[92px] ${
                 isCurrentMonth
-                  ? 'border-gray-100 bg-paper-card dark:border-ink-500 dark:bg-ink-700'
+                  ? 'border-gray-100 bg-paper-card dark:border-white/10 dark:bg-white/[0.04]'
                   : 'border-transparent bg-gray-50/50 dark:bg-ink-800/40'
               } ${isToday ? 'ring-2 ring-brand-500' : ''}`}
             >

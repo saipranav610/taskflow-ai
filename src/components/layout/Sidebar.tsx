@@ -24,9 +24,9 @@ export function Sidebar() {
   const { user, signOut } = useAuth();
 
   return (
-    <aside className="hidden lg:flex h-full w-64 shrink-0 flex-col border-r border-gray-100 bg-paper-card dark:border-ink-500 dark:bg-ink-700">
+    <aside className="hidden lg:flex h-full w-64 shrink-0 flex-col border-r border-gray-100 bg-paper-card dark:border-white/10 dark:bg-white/[0.03] dark:backdrop-blur-xl">
       <div className="flex items-center gap-2 px-5 py-5">
-        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-600 text-white">
+        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-orb-gradient text-ink-900 shadow-glow dark:shadow-glow">
           <Sparkles className="h-4 w-4" />
         </div>
         <span className="font-display text-lg font-semibold text-gray-900 dark:text-gray-100">TaskFlow AI</span>
@@ -40,8 +40,8 @@ export function Sidebar() {
             className={({ isActive }) =>
               `flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-theme ${
                 isActive
-                  ? 'bg-brand-50 text-brand-700 dark:bg-brand-500/10 dark:text-brand-300'
-                  : 'text-gray-600 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-ink-600'
+                  ? 'bg-brand-50 text-brand-700 dark:bg-brand-400/10 dark:text-brand-300 dark:shadow-glow'
+                  : 'text-gray-600 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-white/5'
               }`
             }
           >
@@ -51,9 +51,9 @@ export function Sidebar() {
         ))}
       </nav>
 
-      <div className="border-t border-gray-100 dark:border-ink-500 px-3 py-4">
+      <div className="border-t border-gray-100 dark:border-white/10 px-3 py-4">
         <div className="flex items-center gap-3 rounded-xl px-2 py-2">
-          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-100 dark:bg-brand-500/20 text-sm font-semibold text-brand-700 dark:text-brand-300">
+          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-100 dark:bg-brand-400/20 text-sm font-semibold text-brand-700 dark:text-brand-300">
             {(user?.user_metadata?.full_name || user?.email || '?').charAt(0).toUpperCase()}
           </div>
           <div className="min-w-0 flex-1">
@@ -65,7 +65,7 @@ export function Sidebar() {
         </div>
         <button
           onClick={signOut}
-          className="mt-2 flex w-full items-center gap-2 rounded-xl px-3 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-ink-600"
+          className="mt-2 flex w-full items-center gap-2 rounded-xl px-3 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-white/5"
         >
           <LogOut className="h-4 w-4" />
           Log out

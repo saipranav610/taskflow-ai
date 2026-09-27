@@ -48,7 +48,7 @@ export default function CategoriesPage() {
               {categories.map((c) => (
                 <li
                   key={c.id}
-                  className="flex items-center justify-between rounded-xl border border-gray-100 dark:border-ink-500 px-3 py-2.5"
+                  className="flex items-center justify-between rounded-xl border border-gray-100 dark:border-white/10 px-3 py-2.5"
                 >
                   <div className="flex items-center gap-2">
                     <span className="h-3 w-3 rounded-full" style={{ backgroundColor: c.color }} />
@@ -86,7 +86,7 @@ export default function CategoriesPage() {
                     type="button"
                     onClick={() => setColor(s)}
                     aria-label={`Choose color ${s}`}
-                    className={`h-7 w-7 rounded-full transition-theme ${color === s ? 'ring-2 ring-offset-2 ring-brand-500 dark:ring-offset-ink-700' : ''}`}
+                    className={`h-7 w-7 rounded-full transition-theme ${color === s ? 'ring-2 ring-offset-2 ring-brand-400 dark:ring-offset-ink-800' : ''}`}
                     style={{ backgroundColor: s }}
                   />
                 ))}

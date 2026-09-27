@@ -29,13 +29,13 @@ export default function SettingsPage() {
               <p className="text-sm text-gray-700 dark:text-gray-200">Theme</p>
               <p className="text-xs text-gray-400">Applies across the app and persists on this device.</p>
             </div>
-            <div className="flex gap-1 rounded-xl bg-gray-100 p-1 dark:bg-ink-600">
+            <div className="flex gap-1 rounded-xl bg-gray-100 p-1 dark:bg-white/5">
               <button
                 onClick={() => theme === 'dark' && toggleTheme()}
                 aria-pressed={theme === 'light'}
                 className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium transition-theme ${
                   theme === 'light'
-                    ? 'bg-white text-gray-900 shadow-soft dark:bg-ink-500'
+                    ? 'bg-white text-gray-900 shadow-soft dark:bg-white/10'
                     : 'text-gray-500 dark:text-gray-400'
                 }`}
               >
@@ -46,7 +46,7 @@ export default function SettingsPage() {
                 aria-pressed={theme === 'dark'}
                 className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium transition-theme ${
                   theme === 'dark'
-                    ? 'bg-white text-gray-900 shadow-soft dark:bg-ink-500 dark:text-gray-100'
+                    ? 'bg-white text-gray-900 shadow-soft dark:bg-white/10 dark:text-gray-100'
                     : 'text-gray-500 dark:text-gray-400'
                 }`}
               >

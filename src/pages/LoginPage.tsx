@@ -73,15 +73,22 @@ export default function LoginPage() {
 
 export function AuthLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-paper dark:bg-ink-900 px-4">
-      <div className="w-full max-w-sm animate-fade-in">
-        <div className="mb-6 flex items-center justify-center gap-2">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-600 text-white">
-            <Sparkles className="h-5 w-5" />
+    <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-paper dark:bg-ink-900 px-4 py-10">
+      {/* Signature glowing orb, echoing the reference hero screens */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 -translate-y-1/3 rounded-full bg-orb-gradient opacity-0 blur-3xl dark:opacity-40"
+      />
+
+      <div className="relative w-full max-w-sm animate-fade-in">
+        <div className="mb-8 flex flex-col items-center text-center">
+          <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-orb-gradient text-ink-900 shadow-glow-lg dark:shadow-glow-lg">
+            <Sparkles className="h-7 w-7" />
           </div>
           <span className="font-display text-xl font-semibold text-gray-900 dark:text-gray-100">TaskFlow AI</span>
+          <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">AI-powered task tracking</p>
         </div>
-        <div className="rounded-2xl border border-gray-100 dark:border-ink-500 bg-paper-card dark:bg-ink-700 p-6 shadow-card">
+        <div className="rounded-3xl border border-gray-100 dark:border-white/10 bg-paper-card dark:bg-white/[0.04] dark:backdrop-blur-xl p-6 shadow-card">
           {children}
         </div>
       </div>

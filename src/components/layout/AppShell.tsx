@@ -13,7 +13,7 @@ export function AppShell({
   children: ReactNode;
 }) {
   return (
-    <div className="flex h-screen overflow-hidden bg-paper dark:bg-ink-900 transition-theme">
+    <div className="flex h-screen overflow-hidden bg-paper dark:bg-ink-900 dark:bg-radial-glow dark:bg-no-repeat transition-theme">
       <Sidebar />
       <div className="flex min-w-0 flex-1 flex-col">
         <Header title={title} onSearch={onSearch} />

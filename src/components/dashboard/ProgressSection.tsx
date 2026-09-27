@@ -18,7 +18,7 @@ export function ProgressSection({ tasks }: { tasks: Task[] }) {
     <Card className="flex flex-col items-center gap-5 p-6 sm:flex-row sm:justify-between">
       <div className="flex items-center gap-5">
         <svg width="104" height="104" viewBox="0 0 104 104" className="shrink-0 -rotate-90">
-          <circle cx="52" cy="52" r="44" fill="none" stroke="currentColor" strokeWidth="9" className="text-gray-100 dark:text-ink-500" />
+          <circle cx="52" cy="52" r="44" fill="none" stroke="currentColor" strokeWidth="9" className="text-gray-100 dark:text-white/10" />
           <circle
             cx="52"
             cy="52"
@@ -57,7 +57,7 @@ export function ProgressSection({ tasks }: { tasks: Task[] }) {
             {todayCompleted} / {todayTasks.length}
           </p>
         </div>
-        <div className="mt-2 h-2.5 w-full overflow-hidden rounded-full bg-gray-100 dark:bg-ink-500">
+        <div className="mt-2 h-2.5 w-full overflow-hidden rounded-full bg-gray-100 dark:bg-white/10">
           <div
             className="h-full rounded-full bg-gradient-to-r from-brand-500 to-brand-600 transition-all duration-700 ease-out"
             style={{ width: `${todayPct}%` }}

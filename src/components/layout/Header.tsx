@@ -13,7 +13,7 @@ export function Header({
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-20 border-b border-gray-100 bg-paper/90 backdrop-blur transition-theme dark:border-ink-500 dark:bg-ink-900/90">
+    <header className="sticky top-0 z-20 border-b border-gray-100 bg-paper/90 backdrop-blur transition-theme dark:border-white/10 dark:bg-ink-900/70">
       <div className="flex items-center justify-between gap-4 px-4 py-3 lg:px-8">
         {mobileSearchOpen ? (
           <div className="relative flex-1 sm:hidden">
@@ -24,7 +24,7 @@ export function Header({
               placeholder="Search tasks..."
               onChange={(e) => onSearch?.(e.target.value)}
               aria-label="Search tasks"
-              className="w-full rounded-xl border border-gray-200 bg-white py-2 pl-9 pr-9 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-500 dark:border-ink-500 dark:bg-ink-600 dark:text-gray-100"
+              className="w-full rounded-full border border-gray-200 bg-white py-2 pl-9 pr-9 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-400 dark:border-white/10 dark:bg-white/5 dark:text-gray-100"
             />
             <button
               onClick={() => {
@@ -46,7 +46,7 @@ export function Header({
             <>
               <button
                 onClick={() => setMobileSearchOpen(true)}
-                className="rounded-xl p-2 text-gray-500 hover:bg-gray-100 dark:hover:bg-ink-600 sm:hidden"
+                className="rounded-full p-2 text-gray-500 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/10 sm:hidden"
                 aria-label="Search tasks"
               >
                 <Search className="h-5 w-5" />
@@ -58,17 +58,17 @@ export function Header({
                   placeholder="Search tasks..."
                   onChange={(e) => onSearch(e.target.value)}
                   aria-label="Search tasks"
-                  className="w-56 rounded-xl border border-gray-200 bg-white py-2 pl-9 pr-3 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-500 dark:border-ink-500 dark:bg-ink-600 dark:text-gray-100"
+                  className="w-56 rounded-full border border-gray-200 bg-white py-2 pl-9 pr-3 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-400 dark:border-white/10 dark:bg-white/5 dark:text-gray-100"
                 />
               </div>
             </>
           )}
-          <button className="rounded-xl p-2 text-gray-500 hover:bg-gray-100 dark:hover:bg-ink-600" aria-label="Notifications">
+          <button className="rounded-full p-2 text-gray-500 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/10" aria-label="Notifications">
             <Bell className="h-5 w-5" />
           </button>
           <button
             onClick={toggleTheme}
-            className="rounded-xl p-2 text-gray-500 hover:bg-gray-100 dark:hover:bg-ink-600"
+            className="rounded-full p-2 text-gray-500 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/10"
             aria-label="Toggle dark mode"
           >
             {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}

@@ -20,14 +20,14 @@ export function TaskFilters({ filters, onChange, sortKey, onSortChange, categori
     <div className="flex flex-col gap-2.5">
       {/* Segmented status control — the filter people reach for most, so it
           gets a one-tap pill row instead of being buried in a dropdown. */}
-      <div className="flex w-full gap-1 overflow-x-auto rounded-xl bg-gray-100 p-1 dark:bg-ink-600 sm:w-fit">
+      <div className="flex w-full gap-1 overflow-x-auto rounded-xl bg-gray-100 p-1 dark:bg-white/5 sm:w-fit">
         {STATUSES.map((s) => (
           <button
             key={s}
             onClick={() => onChange({ ...filters, status: s })}
             className={`shrink-0 rounded-lg px-3 py-1.5 text-xs font-medium transition-theme ${
               status === s
-                ? 'bg-white text-gray-900 shadow-soft dark:bg-ink-500 dark:text-gray-100'
+                ? 'bg-white text-gray-900 shadow-soft dark:bg-white/10 dark:text-gray-100'
                 : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'
             }`}
           >

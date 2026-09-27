@@ -10,11 +10,17 @@ export default function AIPlannerPage() {
 
   return (
     <AppShell title="AI Planner">
-      <Card className="mb-6 flex items-center gap-3 bg-gradient-to-r from-brand-600 to-brand-500 p-5 text-white">
-        <Sparkles className="h-6 w-6 shrink-0" />
-        <div>
-          <p className="font-display font-semibold">TaskFlow AI Assistant</p>
-          <p className="text-sm text-brand-100">
+      <Card className="relative mb-6 flex items-center gap-4 overflow-hidden p-5">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-orb-gradient opacity-0 blur-2xl dark:opacity-30"
+        />
+        <div className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-orb-gradient text-ink-900 shadow-glow">
+          <Sparkles className="h-5 w-5" />
+        </div>
+        <div className="relative">
+          <p className="font-display font-semibold text-gray-900 dark:text-gray-100">TaskFlow AI Assistant</p>
+          <p className="text-sm text-gray-500 dark:text-gray-400">
             AI suggestions here are never applied automatically — you always review and approve them first.
           </p>
         </div>

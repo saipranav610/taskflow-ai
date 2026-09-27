@@ -14,7 +14,9 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>(() => {
     const stored = localStorage.getItem(STORAGE_KEY) as Theme | null;
     if (stored) return stored;
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    // TaskFlow AI's look is designed dark-first (glass panels, cyan glow),
+    // so new visitors land in dark mode rather than following the OS setting.
+    return 'dark';
   });
 
   useEffect(() => {

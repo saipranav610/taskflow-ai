@@ -60,7 +60,7 @@ export default function TasksPage() {
       {loading ? (
         <p className="text-sm text-gray-400">Loading tasks...</p>
       ) : visibleTasks.length === 0 ? (
-        <div className="rounded-2xl border border-dashed border-gray-200 dark:border-ink-500 py-16 text-center">
+        <div className="rounded-2xl border border-dashed border-gray-200 dark:border-white/15 py-16 text-center">
           <p className="text-sm text-gray-400">No tasks match your filters yet.</p>
         </div>
       ) : (

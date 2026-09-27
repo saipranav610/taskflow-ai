@@ -42,7 +42,7 @@ export function PlanMyDay({ tasks }: { tasks: Task[] }) {
       {error && <p className="mt-3 text-xs text-ember-600 dark:text-ember-400">{error}</p>}
 
       {plan && (
-        <div className="mt-4 space-y-2 border-t border-gray-100 dark:border-ink-500 pt-4">
+        <div className="mt-4 space-y-2 border-t border-gray-100 dark:border-white/10 pt-4">
           <p className="text-xs text-gray-400">This is a suggestion — nothing has been scheduled or changed.</p>
           <ol className="space-y-2">
             {plan.map((item, i) => (
@@ -50,7 +50,7 @@ export function PlanMyDay({ tasks }: { tasks: Task[] }) {
                 key={i}
                 className={`flex items-center gap-3 rounded-lg px-3 py-2 text-sm ${
                   item.is_break
-                    ? 'bg-gray-50 text-gray-500 dark:bg-ink-600/50 dark:text-gray-400'
+                    ? 'bg-gray-50 text-gray-500 dark:bg-white/5 dark:text-gray-400'
                     : 'bg-brand-50 text-brand-900 dark:bg-brand-500/10 dark:text-brand-200'
                 }`}
               >

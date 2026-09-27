@@ -31,6 +31,14 @@ body {
   padding-top: env(safe-area-inset-top, 0px);
 }
 
+/* Soft cyan glow at the top of the viewport, like the reference screens. */
+.dark body {
+  background-color: theme('colors.ink.900');
+  background-image: radial-gradient(60% 45% at 50% 0%, rgba(47, 207, 227, 0.14) 0%, rgba(47, 207, 227, 0) 70%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 ::selection {
   background-color: theme('colors.brand.200');
   color: theme('colors.brand.900');
@@ -38,6 +46,18 @@ body {
 .dark ::selection {
   background-color: theme('colors.brand.700');
   color: theme('colors.brand.50');
+}
+
+/* Frosted glass surface used by cards, panels, sheets and the auth hero. */
+.glass {
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.dark .glass {
+  background-color: rgba(18, 37, 45, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .transition-theme {

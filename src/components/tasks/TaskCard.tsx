@@ -24,7 +24,7 @@ export function TaskCard({ task, category, onToggleComplete, onEdit, onDelete }:
       className={`group relative flex items-start gap-3 overflow-hidden rounded-2xl border pl-4 pr-3 py-3.5 transition-theme ${
         overdue
           ? 'border-ember-200 bg-ember-50/40 dark:border-ember-500/30 dark:bg-ember-500/5'
-          : 'border-gray-100 bg-paper-card dark:border-ink-500 dark:bg-ink-700'
+          : 'border-gray-100 bg-paper-card dark:border-white/10 dark:bg-white/[0.04]'
       }`}
     >
       {/* Priority signal, encoded structurally rather than only as a badge */}
@@ -53,7 +53,7 @@ export function TaskCard({ task, category, onToggleComplete, onEdit, onDelete }:
         <div className="mt-2 flex flex-wrap items-center gap-1.5">
           <Badge className={priorityColor(task.priority)}>{task.priority}</Badge>
           {category && (
-            <Badge className="bg-gray-100 text-gray-600 dark:bg-ink-600 dark:text-gray-300">{category.name}</Badge>
+            <Badge className="bg-gray-100 text-gray-600 dark:bg-white/10 dark:text-gray-300">{category.name}</Badge>
           )}
           {dueLabel && (
             <span
@@ -67,7 +67,7 @@ export function TaskCard({ task, category, onToggleComplete, onEdit, onDelete }:
             </span>
           )}
           {durationLabel && (
-            <span className="inline-flex items-center rounded-md bg-gray-50 px-1.5 py-0.5 font-mono text-[11px] tabular-nums text-gray-500 dark:bg-ink-600 dark:text-gray-400">
+            <span className="inline-flex items-center rounded-md bg-gray-50 px-1.5 py-0.5 font-mono text-[11px] tabular-nums text-gray-500 dark:bg-white/10 dark:text-gray-400">
               {durationLabel}
             </span>
           )}
@@ -78,13 +78,13 @@ export function TaskCard({ task, category, onToggleComplete, onEdit, onDelete }:
         <button
           onClick={() => setMenuOpen((v) => !v)}
           aria-label="Task actions"
-          className="rounded-lg p-1.5 text-gray-400 hover:bg-gray-100 dark:hover:bg-ink-600"
+          className="rounded-lg p-1.5 text-gray-400 hover:bg-gray-100 dark:hover:bg-white/10"
         >
           <MoreVertical className="h-4 w-4" />
         </button>
         {menuOpen && (
           <div
-            className="absolute right-0 z-10 mt-1 w-32 overflow-hidden rounded-xl border border-gray-100 bg-paper-card shadow-card dark:border-ink-500 dark:bg-ink-600"
+            className="absolute right-0 z-10 mt-1 w-32 overflow-hidden rounded-xl border border-gray-100 bg-paper-card shadow-card dark:border-white/10 dark:bg-ink-800"
             onMouseLeave={() => setMenuOpen(false)}
           >
             <button
@@ -92,7 +92,7 @@ export function TaskCard({ task, category, onToggleComplete, onEdit, onDelete }:
                 onEdit(task);
                 setMenuOpen(false);
               }}
-              className="flex w-full items-center gap-2 px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 dark:text-gray-200 dark:hover:bg-ink-500"
+              className="flex w-full items-center gap-2 px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 dark:text-gray-200 dark:hover:bg-white/5"
             >
               <Pencil className="h-3.5 w-3.5" /> Edit
             </button>

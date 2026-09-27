@@ -29,7 +29,7 @@ const MORE_LINKS = [
 
 const tabClass = ({ isActive }: { isActive: boolean }) =>
   `flex flex-1 flex-col items-center gap-1 py-2 text-[11px] font-medium transition-theme ${
-    isActive ? 'text-brand-600 dark:text-brand-400' : 'text-gray-400 dark:text-gray-500'
+    isActive ? 'text-brand-600 dark:text-brand-300' : 'text-gray-400 dark:text-gray-500'
   }`;
 
 export function BottomNav() {
@@ -40,7 +40,7 @@ export function BottomNav() {
   return (
     <>
       <nav
-        className="fixed inset-x-0 bottom-0 z-40 flex items-stretch border-t border-gray-100 bg-paper-card/95 backdrop-blur dark:border-ink-500 dark:bg-ink-700/95 lg:hidden"
+        className="fixed inset-x-0 bottom-0 z-40 flex items-stretch border-t border-gray-100 bg-paper-card/95 backdrop-blur dark:border-white/10 dark:bg-ink-800/80 lg:hidden"
         style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
       >
         {TABS.map(({ to, label, icon: Icon }) => (
@@ -55,7 +55,7 @@ export function BottomNav() {
           <button
             onClick={() => navigate('/tasks?new=1')}
             aria-label="Add task"
-            className="-mt-6 flex h-14 w-14 items-center justify-center rounded-full bg-brand-600 text-white shadow-fab transition-theme hover:bg-brand-700 active:scale-95"
+            className="-mt-6 flex h-14 w-14 items-center justify-center rounded-full bg-orb-gradient text-ink-900 shadow-fab transition-theme hover:brightness-105 active:scale-95"
           >
             <Plus className="h-6 w-6" />
           </button>
@@ -71,7 +71,7 @@ export function BottomNav() {
         <button
           onClick={() => setMoreOpen(true)}
           className={`flex flex-1 flex-col items-center gap-1 py-2 text-[11px] font-medium transition-theme ${
-            moreOpen ? 'text-brand-600 dark:text-brand-400' : 'text-gray-400 dark:text-gray-500'
+            moreOpen ? 'text-brand-600 dark:text-brand-300' : 'text-gray-400 dark:text-gray-500'
           }`}
         >
           <Grid2x2 className="h-5 w-5" />
@@ -81,21 +81,21 @@ export function BottomNav() {
 
       {moreOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-end bg-ink-900/50 backdrop-blur-sm lg:hidden"
+          className="fixed inset-0 z-50 flex items-end bg-ink-900/70 backdrop-blur-sm lg:hidden"
           onClick={() => setMoreOpen(false)}
         >
           <div
-            className="w-full animate-sheet-in rounded-t-3xl bg-paper-card p-3 dark:bg-ink-700"
+            className="w-full animate-sheet-in rounded-t-3xl bg-paper-card p-3 dark:bg-ink-800 dark:border dark:border-white/10"
             style={{ paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 0.75rem)' }}
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="mx-auto mb-2 h-1 w-10 rounded-full bg-gray-200 dark:bg-ink-500" />
+            <div className="mx-auto mb-2 h-1 w-10 rounded-full bg-gray-200 dark:bg-white/15" />
             <div className="flex items-center justify-between px-2 pb-2">
               <h2 className="font-display text-sm font-semibold text-gray-900 dark:text-gray-100">More</h2>
               <button
                 onClick={() => setMoreOpen(false)}
                 aria-label="Close menu"
-                className="rounded-lg p-1 text-gray-400 hover:bg-gray-100 dark:hover:bg-ink-600"
+                className="rounded-lg p-1 text-gray-400 hover:bg-gray-100 dark:hover:bg-white/10"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -109,8 +109,8 @@ export function BottomNav() {
                   className={({ isActive }) =>
                     `flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium transition-theme ${
                       isActive
-                        ? 'bg-brand-50 text-brand-700 dark:bg-brand-500/10 dark:text-brand-300'
-                        : 'text-gray-700 hover:bg-gray-50 dark:text-gray-200 dark:hover:bg-ink-600'
+                        ? 'bg-brand-50 text-brand-700 dark:bg-brand-400/10 dark:text-brand-300'
+                        : 'text-gray-700 hover:bg-gray-50 dark:text-gray-200 dark:hover:bg-white/5'
                     }`
                   }
                 >

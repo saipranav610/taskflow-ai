@@ -8,10 +8,11 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const variants: Record<string, string> = {
-  primary: 'bg-brand-600 text-white hover:bg-brand-700 active:bg-brand-800 shadow-soft',
+  primary:
+    'bg-gradient-to-r from-brand-300 to-brand-600 text-ink-900 hover:brightness-105 active:brightness-95 shadow-glow',
   secondary:
-    'bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 dark:bg-ink-600 dark:text-gray-100 dark:border-ink-500 dark:hover:bg-ink-500',
-  ghost: 'bg-transparent text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-ink-600',
+    'bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 dark:bg-white/5 dark:text-gray-100 dark:border-white/10 dark:hover:bg-white/10 dark:backdrop-blur-md',
+  ghost: 'bg-transparent text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/5',
   danger: 'bg-ember-600 text-white hover:bg-ember-700',
 };
 
@@ -32,7 +33,7 @@ export function Button({
 }: ButtonProps) {
   return (
     <button
-      className={`inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-theme active:scale-[0.97] disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100 ${variants[variant]} ${sizes[size]} ${className}`}
+      className={`inline-flex items-center justify-center gap-2 rounded-full font-medium transition-theme active:scale-[0.97] disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100 ${variants[variant]} ${sizes[size]} ${className}`}
       disabled={disabled || loading}
       {...rest}
     >
